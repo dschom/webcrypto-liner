@@ -17,9 +17,9 @@
     "url": "git+https://github.com/PeculiarVentures/webcrypto-liner"
   },
   "dependencies": {
-    "asmcrypto.js": "0.0.12",
+    "asmcrypto.js": "0.22.0",
     "elliptic": "*",
-    "webcrypto-core": "^0.1.19"
+    "webcrypto-core": "dannycoates/webcrypto-core"
   },
   "devDependencies": {
     "@types/node": "^8.5.2",

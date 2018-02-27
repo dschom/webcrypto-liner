@@ -53,6 +53,34 @@ declare namespace asmCrypto {
 
     class RSA_PSS_SHA256 extends RSA_PSS_SHA1 { }
     class RSA_PSS_SHA512 extends RSA_PSS_SHA1 { }
+
+    class PBKDF2_HMAC_SHA1 {
+        static bytes(password: Uint8Array, salt: Uint8Array, iterations?: number, dklen?: number): Uint8Array;
+
+        static hex(password: Uint8Array, salt: Uint8Array, iterations?: number, dklen?: number): Uint8Array;
+
+        static base64(password: Uint8Array, salt: Uint8Array, iterations?: number, dklen?: number): Uint8Array;
+    }
+
+    class PBKDF2_HMAC_SHA256 {
+        static bytes(password: Uint8Array, salt: Uint8Array, iterations?: number, dklen?: number): Uint8Array;
+
+        static hex(password: Uint8Array, salt: Uint8Array, iterations?: number, dklen?: number): Uint8Array;
+
+        static base64(password: Uint8Array, salt: Uint8Array, iterations?: number, dklen?: number): Uint8Array;
+    }
+
+    class PBKDF2_HMAC_SHA512 {
+        static bytes(password: Uint8Array, salt: Uint8Array, iterations?: number, dklen?: number): Uint8Array;
+
+        static hex(password: Uint8Array, salt: Uint8Array, iterations?: number, dklen?: number): Uint8Array;
+
+        static base64(password: Uint8Array, salt: Uint8Array, iterations?: number, dklen?: number): Uint8Array;
+    }
+
+    class HMAC_SHA256 {
+        static bytes(data: Uint8Array, password: Uint8Array): Uint8Array;
+    }
 }
 
 declare module "asmcrypto.js" {

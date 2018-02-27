@@ -15,6 +15,10 @@ import { AesCrypto } from "./aes/crypto";
 import { ShaCrypto } from "./sha/crypto";
 import { RsaCrypto } from "./rsa/crypto";
 import { EcCrypto } from "./ec/crypto";
+import { Pbkdf2Crypto } from './pbkdf2/crypto';
+import { HmacCrypto } from './hmac/crypto';
+import { HkdfCrypto } from './hkdf/crypto';
+import { ALPN_ENABLED } from "constants";
 
 declare type IE = any;
 
@@ -215,6 +219,10 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.RsaPSS.toLowerCase():
                         Class = RsaCrypto;
                         break;
+                    case AlgorithmNames.Hmac.toLowerCase():
+                        //return HmacCrypto.sign(alg, key, dataBytes);
+                        Class = HmacCrypto;
+                        break;
                     default:
                         throw new LinerError(LinerError.UNSUPPORTED_ALGORITHM, alg.name.toLowerCase());
                 }
@@ -299,6 +307,12 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.EcDH.toLowerCase():
                         Class = EcCrypto;
                         break;
+                    case AlgorithmNames.Pbkdf2.toLowerCase():
+                        Class = Pbkdf2Crypto;
+                        break;
+                    case AlgorithmNames.Hkdf.toLowerCase():
+                        Class = HkdfCrypto;
+                        break;
                     default:
                         throw new LinerError(LinerError.NOT_SUPPORTED, "deriveBits");
                 }
@@ -337,8 +351,14 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.EcDH.toLowerCase():
                         Class = EcCrypto;
                         break;
+                    case AlgorithmNames.Pbkdf2.toLowerCase():
+                        Class = Pbkdf2Crypto;
+                        break;
+                    case AlgorithmNames.Hkdf.toLowerCase():
+                        Class = HkdfCrypto;
+                        break;
                     default:
-                        throw new LinerError(LinerError.NOT_SUPPORTED, "deriveBits");
+                        throw new LinerError(LinerError.NOT_SUPPORTED, "deriveKey");
                 }
                 return Class.deriveKey(alg, baseKey, algDerivedKey, extractable, keyUsages);
             });
@@ -579,6 +599,9 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.RsaOAEP.toLowerCase():
                         Class = RsaCrypto;
                         break;
+                    case AlgorithmNames.Hmac.toLowerCase():
+                        Class = HmacCrypto;
+                        break;
                     default:
                         throw new LinerError(LinerError.UNSUPPORTED_ALGORITHM, key.algorithm.name!.toLowerCase());
                 }
@@ -650,6 +673,15 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.RsaPSS.toLowerCase():
                     case AlgorithmNames.RsaOAEP.toLowerCase():
                         Class = RsaCrypto;
+                        break;
+                    case AlgorithmNames.Pbkdf2.toLowerCase():
+                        Class = Pbkdf2Crypto;
+                        break;
+                    case AlgorithmNames.Hmac.toLowerCase():
+                        Class = HmacCrypto;
+                        break;
+                    case AlgorithmNames.Hkdf.toLowerCase():
+                        Class = HkdfCrypto;
                         break;
                     default:
                         throw new LinerError(LinerError.UNSUPPORTED_ALGORITHM, alg.name.toLowerCase());
