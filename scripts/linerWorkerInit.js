@@ -14,9 +14,9 @@ function BrowserInfo()
 		name: "Unknown",
 		version: "0"
 	};
-	
+
 	const userAgent = self.navigator.userAgent;
-	
+
 	switch(true)
 	{
 		case (/edge\/([\d\.]+)/i.test(userAgent)):
@@ -35,14 +35,6 @@ function BrowserInfo()
 			res.name = Browser.Chrome;
 			res.version = /chrome\/([\d\.]+)/i.exec(userAgent)[1];
 			break;
-		case (/mobile/i.test(userAgent) && /firefox/i.test(userAgent)):
-		      	res.name = Browser.Mobile;
-		      	res.version = /firefox\/([\d\.]+)/i.exec(userAgent)[1];
-		      	break;
-		case (/mobile/i.test(userAgent)):
-        		res.name = Browser.Mobile;
-        		res.version = /mobile\/([\w]+)/i.exec(userAgent)[1];
-			break;
 		case (/safari/i.test(userAgent)):
 			res.name = Browser.Safari;
 			res.version = /version\/([\d\.]+)/i.exec(userAgent)[1];
@@ -54,7 +46,7 @@ function BrowserInfo()
 		default:
 			console.log("UNKNOWN BROWSER");
 	}
-	
+
 	return res;
 }
 //**************************************************************************************
@@ -66,13 +58,13 @@ function getRandomArbitrary(min, max)
 function getRandomValues(buffer)
 {
 	self.Math.seedrandom(self.location.href, { entropy: true });
-	
+
 	const buf = new Uint8Array(buffer.buffer);
 	let i = 0;
-	
+
 	while(i < buf.length)
 		buf[i++] = getRandomArbitrary(0, 255);
-	
+
 	return buffer;
 }
 //**************************************************************************************
@@ -87,7 +79,7 @@ export default function linerWorkerInit(path)
 	}
 
 	importScripts(path + "webcrypto-liner.lib.min.js");
-	
+
 	switch(BrowserInfo().name)
 	{
 		case Browser.IE:

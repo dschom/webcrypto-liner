@@ -13,7 +13,7 @@ import { CryptoKey, CryptoKeyPair } from "./key";
 // Crypto
 import { AesCrypto } from "./aes/crypto";
 import { ShaCrypto } from "./sha/crypto";
-import { RsaCrypto } from "./rsa/crypto";
+// import { RsaCrypto } from "./rsa/crypto";
 import { EcCrypto } from "./ec/crypto";
 import { Pbkdf2Crypto } from './pbkdf2/crypto';
 import { HmacCrypto } from './hmac/crypto';
@@ -141,11 +141,11 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.EcDH.toLowerCase():
                         Class = EcCrypto;
                         break;
-                    case AlgorithmNames.RsaOAEP.toLowerCase():
-                    case AlgorithmNames.RsaPSS.toLowerCase():
-                    case AlgorithmNames.RsaSSA.toLowerCase():
-                        Class = RsaCrypto;
-                        break;
+                    // case AlgorithmNames.RsaOAEP.toLowerCase():
+                    // case AlgorithmNames.RsaPSS.toLowerCase():
+                    // case AlgorithmNames.RsaSSA.toLowerCase():
+                    //     Class = RsaCrypto;
+                    //     break;
                     default:
                         throw new LinerError(LinerError.UNSUPPORTED_ALGORITHM, alg.name.toLowerCase());
                 }
@@ -215,10 +215,10 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.EcDSA.toLowerCase():
                         Class = EcCrypto;
                         break;
-                    case AlgorithmNames.RsaSSA.toLowerCase():
-                    case AlgorithmNames.RsaPSS.toLowerCase():
-                        Class = RsaCrypto;
-                        break;
+                    // case AlgorithmNames.RsaSSA.toLowerCase():
+                    // case AlgorithmNames.RsaPSS.toLowerCase():
+                    //     Class = RsaCrypto;
+                    //     break;
                     case AlgorithmNames.Hmac.toLowerCase():
                         //return HmacCrypto.sign(alg, key, dataBytes);
                         Class = HmacCrypto;
@@ -266,15 +266,15 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.EcDSA.toLowerCase():
                         Class = EcCrypto;
                         break;
-                    case AlgorithmNames.RsaSSA.toLowerCase():
-                    case AlgorithmNames.RsaPSS.toLowerCase():
-                        Class = RsaCrypto;
-                        break;
+                    // case AlgorithmNames.RsaSSA.toLowerCase():
+                    // case AlgorithmNames.RsaPSS.toLowerCase():
+                    //     Class = RsaCrypto;
+                    //     break;
                     default:
                         throw new LinerError(LinerError.UNSUPPORTED_ALGORITHM, alg.name.toLowerCase());
                 }
-                return PrepareKey(key, Class)
-                    .then((preparedKey) => Class.verify(alg, preparedKey, signatureBytes, dataBytes));
+                // return PrepareKey(key, Class)
+                //     .then((preparedKey) => Class.verify(alg, preparedKey, signatureBytes, dataBytes));
             });
     }
 
@@ -405,9 +405,9 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.AesGCM.toLowerCase():
                         Class = AesCrypto;
                         break;
-                    case AlgorithmNames.RsaOAEP.toLowerCase():
-                        Class = RsaCrypto;
-                        break;
+                    // case AlgorithmNames.RsaOAEP.toLowerCase():
+                    //     Class = RsaCrypto;
+                    //     break;
                     default:
                         throw new LinerError(LinerError.NOT_SUPPORTED, "encrypt");
                 }
@@ -446,9 +446,9 @@ export class SubtleCrypto extends core.SubtleCrypto {
                         case AlgorithmNames.AesGCM.toLowerCase():
                             Class = AesCrypto;
                             break;
-                        case AlgorithmNames.RsaOAEP.toLowerCase():
-                            Class = RsaCrypto;
-                            break;
+                        // case AlgorithmNames.RsaOAEP.toLowerCase():
+                        //     Class = RsaCrypto;
+                        //     break;
                         default:
                             throw new LinerError(LinerError.NOT_SUPPORTED, "decrypt");
                     }
@@ -486,9 +486,9 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.AesGCM.toLowerCase():
                         Class = AesCrypto;
                         break;
-                    case AlgorithmNames.RsaOAEP.toLowerCase():
-                        Class = RsaCrypto;
-                        break;
+                    // case AlgorithmNames.RsaOAEP.toLowerCase():
+                    //     Class = RsaCrypto;
+                    //     break;
                     default:
                         throw new LinerError(LinerError.NOT_SUPPORTED, "wrapKey");
                 }
@@ -541,9 +541,9 @@ export class SubtleCrypto extends core.SubtleCrypto {
                         case AlgorithmNames.AesGCM.toLowerCase():
                             Class = AesCrypto;
                             break;
-                        case AlgorithmNames.RsaOAEP.toLowerCase():
-                            Class = RsaCrypto;
-                            break;
+                        // case AlgorithmNames.RsaOAEP.toLowerCase():
+                        //     Class = RsaCrypto;
+                        //     break;
                         default:
                             throw new LinerError(LinerError.NOT_SUPPORTED, "unwrapKey");
                     }
@@ -594,11 +594,11 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.EcDSA.toLowerCase():
                         Class = EcCrypto;
                         break;
-                    case AlgorithmNames.RsaSSA.toLowerCase():
-                    case AlgorithmNames.RsaPSS.toLowerCase():
-                    case AlgorithmNames.RsaOAEP.toLowerCase():
-                        Class = RsaCrypto;
-                        break;
+                    // case AlgorithmNames.RsaSSA.toLowerCase():
+                    // case AlgorithmNames.RsaPSS.toLowerCase():
+                    // case AlgorithmNames.RsaOAEP.toLowerCase():
+                    //     Class = RsaCrypto;
+                    //     break;
                     case AlgorithmNames.Hmac.toLowerCase():
                         Class = HmacCrypto;
                         break;
@@ -669,11 +669,11 @@ export class SubtleCrypto extends core.SubtleCrypto {
                     case AlgorithmNames.EcDSA.toLowerCase():
                         Class = EcCrypto;
                         break;
-                    case AlgorithmNames.RsaSSA.toLowerCase():
-                    case AlgorithmNames.RsaPSS.toLowerCase():
-                    case AlgorithmNames.RsaOAEP.toLowerCase():
-                        Class = RsaCrypto;
-                        break;
+                    // case AlgorithmNames.RsaSSA.toLowerCase():
+                    // case AlgorithmNames.RsaPSS.toLowerCase():
+                    // case AlgorithmNames.RsaOAEP.toLowerCase():
+                    //     Class = RsaCrypto;
+                    //     break;
                     case AlgorithmNames.Pbkdf2.toLowerCase():
                         Class = Pbkdf2Crypto;
                         break;
@@ -787,11 +787,11 @@ function FixExportJwk(jwk: any, alg: any, keyUsages: string[]) {
         // add alg
         let CryptoClass: AlgorithmConverter | null = null;
         switch (alg.name.toUpperCase()) {
-            case AlgorithmNames.RsaOAEP.toUpperCase():
-            case AlgorithmNames.RsaPSS.toUpperCase():
-            case AlgorithmNames.RsaSSA.toUpperCase():
-                CryptoClass = RsaCrypto;
-                break;
+            // case AlgorithmNames.RsaOAEP.toUpperCase():
+            // case AlgorithmNames.RsaPSS.toUpperCase():
+            // case AlgorithmNames.RsaSSA.toUpperCase():
+            //     CryptoClass = RsaCrypto;
+            //     break;
             case AlgorithmNames.AesECB.toUpperCase():
             case AlgorithmNames.AesCBC.toUpperCase():
             case AlgorithmNames.AesGCM.toUpperCase():

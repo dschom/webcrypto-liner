@@ -1,32 +1,28 @@
 {
-  "name": "webcrypto-liner",
+  "name": "@dannycoates/webcrypto-liner",
   "version": "0.1.34",
   "description": "A WebCrypto polyfill that \"smooths out\" the rough-edges in existing User Agent implementations.",
   "main": "build/index.js",
+  "module": "build/lib.js",
   "scripts": {
-    "prepare": "npm run build:prod",
-    "build": "npm run build:prod",
+    "prepublish": "npm run build",
+    "build": "tsc -p tsconfig.es2015.json",
     "build:es5": "tsc",
-    "build:es2015": "tsc -p tsconfig.es2015.json",
-    "build:webpack": "webpack",
-    "build:prod": "webpack -p",
-    "pub": "npm run build:prod && npm version patch && npm publish && git push"
+    "pub": "npm run build && npm version patch && npm publish && git push"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PeculiarVentures/webcrypto-liner"
   },
   "dependencies": {
-    "asmcrypto.js": "0.22.0",
-    "elliptic": "*",
+    "asmcrypto.js": "^0.22.0",
+    "elliptic": "^6.4.1",
     "webcrypto-core": "dannycoates/webcrypto-core"
   },
   "devDependencies": {
     "@types/node": "^8.5.2",
-    "ts-loader": "^3.2.0",
     "tslib": "^1.8.1",
-    "typescript": "^2.6.2",
-    "webpack": "^3.10.0"
+    "typescript": "^2.6.2"
   },
   "keywords": [
     "crypto",

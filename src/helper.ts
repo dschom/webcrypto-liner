@@ -15,32 +15,32 @@ export function BrowserInfo() {
         name: "Unknown",
         version: "0",
     };
-    const userAgent = self.navigator.userAgent;
+    try {
+        const userAgent = self.navigator.userAgent;
 
-    let reg: string[] | null;
-    // tslint:disable-next-line:no-conditional-assignment
-    if (reg = /edge\/([\d\.]+)/i.exec(userAgent)) {
-        res.name = Browser.Edge;
-        res.version = reg[1];
-    } else if (/msie/i.test(userAgent)) {
-        res.name = Browser.IE;
-        res.version = /msie ([\d\.]+)/i.exec(userAgent)![1];
-    } else if (/Trident/i.test(userAgent)) {
-        res.name = Browser.IE;
-        res.version = /rv:([\d\.]+)/i.exec(userAgent)![1];
-    } else if (/chrome/i.test(userAgent)) {
-        res.name = Browser.Chrome;
-        res.version = /chrome\/([\d\.]+)/i.exec(userAgent)![1];
-    } else if (/mobile/i.test(userAgent)) {
-        res.name = Browser.Mobile;
-        res.version = /mobile\/([\w]+)/i.exec(userAgent)![1];
-    } else if (/safari/i.test(userAgent)) {
-        res.name = Browser.Safari;
-        res.version = /version\/([\d\.]+)/i.exec(userAgent)![1];
-    } else if (/firefox/i.test(userAgent)) {
-        res.name = Browser.Firefox;
-        res.version = /firefox\/([\d\.]+)/i.exec(userAgent)![1];
+        let reg: string[] | null;
+        // tslint:disable-next-line:no-conditional-assignment
+        if (reg = /edge\/([\d\.]+)/i.exec(userAgent)) {
+            res.name = Browser.Edge;
+            res.version = reg[1];
+        } else if (/msie/i.test(userAgent)) {
+            res.name = Browser.IE;
+            res.version = /msie ([\d\.]+)/i.exec(userAgent)![1];
+        } else if (/Trident/i.test(userAgent)) {
+            res.name = Browser.IE;
+            res.version = /rv:([\d\.]+)/i.exec(userAgent)![1];
+        } else if (/chrome/i.test(userAgent)) {
+            res.name = Browser.Chrome;
+            res.version = /chrome\/([\d\.]+)/i.exec(userAgent)![1];
+        } else if (/safari/i.test(userAgent)) {
+            res.name = Browser.Safari;
+            res.version = /version\/([\d\.]+)/i.exec(userAgent)![1];
+        } else if (/firefox/i.test(userAgent)) {
+            res.name = Browser.Firefox;
+            res.version = /firefox\/([\d\.]+)/i.exec(userAgent)![1];
+        }
     }
+    catch (e) {}
     return res;
 }
 
