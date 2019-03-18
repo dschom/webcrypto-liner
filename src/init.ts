@@ -2,19 +2,7 @@ import { LinerError } from "./error";
 
 let w: any;
 if (typeof self === "undefined") {
-    const crypto = require("crypto");
-    w = {
-        crypto: {
-            subtle: {},
-            getRandomValues: (array: ArrayBufferView) => {
-                const buf = array.buffer;
-                const uint8buf = new Uint8Array(buf);
-                const rnd = crypto.randomBytes(uint8buf.length);
-                rnd.forEach((octet: number, index: number) => uint8buf[index] = octet);
-                return array;
-            },
-        },
-    };
+    throw new Error("this module can't be used from node");
 } else {
     w = self;
 }
