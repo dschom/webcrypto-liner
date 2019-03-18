@@ -1,6 +1,6 @@
 {
   "name": "@dannycoates/webcrypto-liner",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "description": "A WebCrypto polyfill that \"smooths out\" the rough-edges in existing User Agent implementations.",
   "main": "build/index.js",
   "module": "build/lib.js",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "asmcrypto.js": "^0.22.0",
-    "elliptic": "^6.4.1",
+    "@dannycoates/elliptic": "^6.4.2",
     "webcrypto-core": "dannycoates/webcrypto-core"
   },
   "devDependencies": {
