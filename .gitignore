@@ -2,8 +2,6 @@
 .DS_Store
 
 /.vscode
-/build
 /typings
 /node_modules
-index.js
 *.log
