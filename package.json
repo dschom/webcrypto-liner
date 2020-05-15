@@ -3,7 +3,7 @@
   "version": "0.1.36",
   "description": "A WebCrypto polyfill that \"smooths out\" the rough-edges in existing User Agent implementations.",
   "scripts": {
-    "prepublish": "npm run build",
+    "postinstall": "npm run build",
     "build": "tsc -p tsconfig.es2015.json",
     "build:es5": "tsc",
     "pub": "npm run build && npm version patch && npm publish && git push"
