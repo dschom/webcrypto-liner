@@ -42,7 +42,7 @@ declare namespace EllipticJS {
     }
 }
 
-declare module "elliptic" {
+declare module "@dannycoates/elliptic" {
 
     const version: string;
     const utils: {
