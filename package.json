@@ -3,7 +3,6 @@
   "version": "0.1.36",
   "description": "A WebCrypto polyfill that \"smooths out\" the rough-edges in existing User Agent implementations.",
   "scripts": {
-    "postinstall": "npm run build",
     "build": "tsc -p tsconfig.es2015.json",
     "build:es5": "tsc",
     "pub": "npm run build && npm version patch && npm publish && git push"
@@ -15,7 +14,7 @@
   "dependencies": {
     "asmcrypto.js": "^0.22.0",
     "@dannycoates/elliptic": "^6.4.2",
-    "webcrypto-core": "git://github.com/mozilla-fxa/webcrypto-core.git#b3374ff09b85a1c9227609b7e181d85a0cea96b3"
+    "webcrypto-core": "git://github.com/mozilla-fxa/webcrypto-core.git#e0bb9e60e7df2abc6d13caf4a15cf22188e2981a"
   },
   "devDependencies": {
     "@types/node": "^8.5.2",

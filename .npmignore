@@ -1,10 +1,8 @@
 /.vscode
 /node_modules
+/src
 /tmp
 /examples
-/src
-index.js
 BrowserSupport.md
-ts*.json
 webpack*.js
 .travis.yml
