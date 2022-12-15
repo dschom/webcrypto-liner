@@ -14,7 +14,7 @@
   "dependencies": {
     "asmcrypto.js": "^0.22.0",
     "@dannycoates/elliptic": "^6.4.2",
-    "webcrypto-core": "git://github.com/mozilla-fxa/webcrypto-core.git#e0bb9e60e7df2abc6d13caf4a15cf22188e2981a"
+    "webcrypto-core": "https://github.com/mozilla-fxa/webcrypto-core.git#e0bb9e60e7df2abc6d13caf4a15cf22188e2981a"
   },
   "devDependencies": {
     "@types/node": "^8.5.2",
